@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Verification</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="cyber-panel.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init("dZT1MQp7pHKccJH8Y");
+        })();
+    </script>
+</head>
+<body>
+    <div id="cyber-background"></div>
+    <div class="container">
+        <div class="cyber-panel">
+            <h1>Cyber Verification</h1>
+            <div id="emailSection">
+                <div class="input-group">
+                    <input type="email" id="emailInput" required>
+                    <label for="emailInput">Enter your email</label>
+                </div>
+                <button id="sendCodeBtn" class="cyber-button">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Initiate Verification
+                </button>
+            </div>
+            <div id="codeSection" class="hidden">
+                <div class="code-boxes">
+                    <input type="text" maxlength="1" class="code-box">
+                    <input type="text" maxlength="1" class="code-box">
+                    <input type="text" maxlength="1" class="code-box">
+                    <input type="text" maxlength="1" class="code-box">
+                    <input type="text" maxlength="1" class="code-box">
+                    <input type="text" maxlength="1" class="code-box">
+                </div>
+                <button id="verifyCodeBtn" class="cyber-button">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Verify Code
+                </button>
+            </div>
+            <div id="feedbackMessage" class="hidden"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

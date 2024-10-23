@@ -1,0 +1,359 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary-color: #00fff2;
+  --secondary-color: #ff00e6;
+  --background-color: #0a0a0a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family: 'Rajdhani', sans-serif;
+  background-color: var(--background-color);
+  color: #fff;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+  z-index: 2;
+  padding: 20px;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  color: #fff;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid var(--primary-color);
+  outline: none;
+  transition: 0.3s;
+}
+
+.input-group label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px;
+  font-size: 16px;
+  color: var(--primary-color);
+  pointer-events: none;
+  transition: 0.3s;
+}
+
+.input-group input:focus ~ label,
+.input-group input:valid ~ label {
+  top: -20px;
+  left: 0;
+  font-size: 12px;
+  color: var(--secondary-color);
+}
+
+.cyber-button {
+  position: relative;
+  display: inline-block;
+  padding: 15px 30px;
+  color: var(--primary-color);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-decoration: none;
+  font-size: 16px;
+  overflow: hidden;
+  transition: 0.2s;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+.cyber-button:hover {
+  color: #255784;
+  background: var(--primary-color);
+  box-shadow: 0 0 10px var(--primary-color), 0 0 40px var(--primary-color), 0 0 80px var(--primary-color);
+  transition-delay: 1s;
+}
+
+.cyber-button span {
+  position: absolute;
+  display: block;
+}
+
+.cyber-button span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--primary-color));
+}
+
+.cyber-button:hover span:nth-child(1) {
+  left: 100%;
+  transition: 1s;
+}
+
+.cyber-button span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, var(--primary-color));
+}
+
+.cyber-button:hover span:nth-child(3) {
+  right: 100%;
+  transition: 1s;
+  transition-delay: 0.5s;
+}
+
+.cyber-button span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, var(--primary-color));
+}
+
+.cyber-button:hover span:nth-child(2) {
+  top: 100%;
+  transition: 1s;
+  transition-delay: 0.25s;
+}
+
+.cyber-button span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, var(--primary-color));
+}
+
+.cyber-button:hover span:nth-child(4) {
+  bottom: 100%;
+  transition: 1s;
+  transition-delay: 0.75s;
+}
+
+.code-boxes {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.code-box {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  font-size: 1.5em;
+  border: 2px solid var(--primary-color);
+  background-color: transparent;
+  color: var(--primary-color);
+  border-radius: 5px;
+}
+
+.code-box:focus {
+  outline: none;
+  box-shadow: 0 0 10px var(--primary-color);
+}
+
+.hidden {
+  display: none;
+}
+
+#feedbackMessage {
+  margin-top: 20px;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: center;
+}
+
+.success {
+  color: #00ff00;
+  text-shadow: 0 0 10px #00ff00;
+}
+
+.error {
+  color: #ff0000;
+  text-shadow: 0 0 10px #ff0000;
+}
+
+
+#cyber-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+  overflow: hidden;
+  z-index: 1;
+}
+
+#cyber-background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(0, 255, 242, 0.1),
+    rgba(0, 255, 242, 0.1) 10px,
+    transparent 10px,
+    transparent 20px
+  );
+  animation: scanlines 3s linear infinite;
+  opacity: 0.3;
+}
+
+#cyber-background::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 10em;
+  color: rgba(255, 255, 255, 0.05);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  animation: moveParticle 10s linear infinite;
+  opacity: 0.8;
+}
+
+.username-display {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  font-size: 1.5em;
+  color: var(--secondary-color);
+  text-shadow: 0 0 10px var(--secondary-color);
+  z-index: 3;
+}
+
+@keyframes scanlines {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes glow {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0.7;
+  }
+}
+
+@keyframes moveParticle {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(100vw, 100vh);
+  }
+}
+
+
+@media (max-width: 768px) {
+  .cyber-panel {
+    width: 90%;
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  .code-box {
+    width: 30px;
+    height: 30px;
+    font-size: 1.2em;
+  }
+
+  .username-display {
+    font-size: 1.2em;
+  }
+}
+
+@media (max-width: 480px) {
+  .cyber-panel {
+    width: 100%;
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 1.8em;
+  }
+
+  .code-box {
+    width: 25px;
+    height: 25px;
+    font-size: 1em;
+  }
+
+  .username-display {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    font-size: 1.5em;
+    color: var(--secondary-color);
+    text-shadow: 0 0 10px var(--secondary-color);
+    z-index: 3;
+}
+
+
+@media (max-width: 768px) {
+    .username-display {
+        font-size: 1.2em;
+        top: 10px;
+        right: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .username-display {
+        font-size: 1em;
+        top: 5px;
+        right: 5px;
+    }
+}
